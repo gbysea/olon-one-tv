@@ -2,5 +2,9 @@
 node_modules/
 .DS_Store
 .env
+# local dev TLS files
+cert.pem
+key.pem
+.env
 node_modules/
 .DS_Store
