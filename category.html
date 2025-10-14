@@ -91,7 +91,7 @@
   <script src="/js/posts.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      await window.olonDB.initBolt Database();
+      await window.olonDB['initBolt Database']();
       window.olonHeaderLogo.init();
       
       const urlParams = new URLSearchParams(window.location.search);
