@@ -1,18 +1,26 @@
 window.olonDB = {
-  Bolt Database: null,
-  
-  async initBolt Database() {
-    if (this.Bolt Database) return this.Bolt Database;
-    
-    const Bolt DatabaseUrl = 'https://your-project.supabase.co';
-    const Bolt DatabaseKey = 'your-anon-key';
-    
-    this.Bolt Database = supabase.createClient(Bolt DatabaseUrl, Bolt DatabaseKey);
-    return this.Bolt Database;
+  'Bolt Database': null,
+
+  // Keep the space-containing names as external API but use quoted keys so
+  // the file remains valid JavaScript. The init method will read credentials
+  // from window globals if present (both spaced and non-spaced variants) and
+  // fall back to placeholders.
+  async ['initBolt Database']() {
+    if (this['Bolt Database']) return this['Bolt Database'];
+
+    // Prefer window globals that may be injected by the environment.
+    const urlFromWindow = window['VITE_Bolt Database_URL'] || window.VITE_BOLT_DATABASE_URL;
+    const keyFromWindow = window['VITE_Bolt Database_ANON_KEY'] || window.VITE_BOLT_DATABASE_ANON_KEY;
+
+    const BoltDatabaseUrl = urlFromWindow || 'https://your-project.supabase.co';
+    const BoltDatabaseKey = keyFromWindow || 'your-anon-key';
+
+    this['Bolt Database'] = supabase.createClient(BoltDatabaseUrl, BoltDatabaseKey);
+    return this['Bolt Database'];
   },
   
   async getCategories() {
-    const { data, error } = await this.Bolt Database
+    const { data, error } = await this['Bolt Database']
       .from('categories')
       .select('*')
       .order('name');
@@ -25,7 +33,7 @@ window.olonDB = {
   },
   
   async getCategoryBySlug(slug) {
-    const { data, error } = await this.Bolt Database
+    const { data, error } = await this['Bolt Database']
       .from('categories')
       .select('*')
       .eq('slug', slug)
@@ -39,7 +47,7 @@ window.olonDB = {
   },
   
   async getPosts(limit = null) {
-    let query = this.Bolt Database
+    let query = this['Bolt Database']
       .from('posts')
       .select(`
         *,
@@ -59,7 +67,7 @@ window.olonDB = {
       query = query.limit(limit);
     }
     
-    const { data, error } = await query;
+  const { data, error } = await query;
     
     if (error) {
       console.error('Error fetching posts:', error);
@@ -69,7 +77,7 @@ window.olonDB = {
   },
   
   async getPostBySlug(slug) {
-    const { data, error } = await this.Bolt Database
+    const { data, error } = await this['Bolt Database']
       .from('posts')
       .select(`
         *,
@@ -94,7 +102,7 @@ window.olonDB = {
   },
   
   async getPostsByCategory(categoryId, limit = null) {
-    let query = this.Bolt Database
+    let query = this['Bolt Database']
       .from('posts')
       .select(`
         *,
