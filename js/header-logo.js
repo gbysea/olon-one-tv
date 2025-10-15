@@ -26,27 +26,26 @@ window.olonHeaderLogo = {
     this.updateLogo(category);
   },
   
-  updateLogo(category) {
-    if (!this.logoImage) return;
-    
-    if (category && category.icon_up) {
-      this.logoImage.src = category.icon_up;
-      this.logoImage.dataset.hoverSrc = category.icon_hover || category.icon_up;
-      this.logoImage.dataset.upSrc = category.icon_up;
-    } else {
-      this.logoImage.src = '/images/up-UP-olon-120.png';
-      this.logoImage.dataset.hoverSrc = '/images/up-HOVER-olon-120.png';
-      this.logoImage.dataset.upSrc = '/images/up-UP-olon-120.png';
-    }
-  },
+    updateLogo(categorySlug) {
+      const img = document.querySelector('#site-logo-img img');
+      if (!img) return;
+      const base = (typeof OLON_CONFIG !== 'undefined') ? (OLON_CONFIG.themeUrl || '') : '';
+      img.dataset.up = `${base}/assets/images/${categorySlug}-UP-olon-120.png`;
+      img.dataset.hover = `${base}/assets/images/${categorySlug}-HOVER-olon-120.png`;
+      img.src = img.dataset.up;
+    },
   
   onHover() {
-    if (!this.logoImage || !this.logoImage.dataset.hoverSrc) return;
-    this.logoImage.src = this.logoImage.dataset.hoverSrc;
+    if (!this.logoImage || !this.logoImage.dataset.hover) return;
+    this.logoImage.src = this.logoImage.dataset.hover;
   },
   
   onLeave() {
-    if (!this.logoImage || !this.logoImage.dataset.upSrc) return;
-    this.logoImage.src = this.logoImage.dataset.upSrc;
+    if (!this.logoImage || !this.logoImage.dataset.up) return;
+    this.logoImage.src = this.logoImage.dataset.up;
   }
 };
+
+  if (typeof window !== 'undefined') {
+    window.olonHeaderLogo.updateLogo = updateLogo;
+  }
