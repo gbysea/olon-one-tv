@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 2,
+  "version": 3,
   "settings": {
     "color": {
       "palette": [
@@ -32,7 +32,7 @@
     }
   },
   "templateParts": [
-    { "slug": "header", "area": "header" },
-    { "slug": "footer", "area": "footer" }
+    { "name": "header", "area": "header" },
+    { "name": "footer", "area": "footer" }
   ]
 }
