@@ -102,3 +102,13 @@ function olon_register_patterns() {
     }
 }
 add_action( 'init', 'olon_register_patterns' );
+
+// Debug: show active template in footer for admins (temporary - remove after testing)
+add_action('wp_footer', function() {
+    if ( function_exists('current_user_can') && current_user_can('manage_options') ) {
+        global $template;
+        if ( isset($template) ) {
+            echo "<!-- Active template: " . esc_html( basename($template) ) . " -->";
+        }
+    }
+});
