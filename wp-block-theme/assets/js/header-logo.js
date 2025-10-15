@@ -24,7 +24,9 @@ if (typeof window !== 'undefined') {
 export function updateLogo(categorySlug) {
   const img = document.querySelector('#site-logo-img img');
   if (!img) return;
-  const base = (window.OLON_CONFIG && window.OLON_CONFIG.themeUrl) ? window.OLON_CONFIG.themeUrl : '/wp-content/themes/olon-one-tv';
+  const base = (window.OLON_CONFIG && window.OLON_CONFIG.themeUrl)
+    ? window.OLON_CONFIG.themeUrl
+    : (window.location ? window.location.origin + '/wp-content/themes/olon-one-tv' : '/wp-content/themes/olon-one-tv');
   img.dataset.up = `${base}/assets/images/${categorySlug}-UP-olon-120.png`;
   img.dataset.hover = `${base}/assets/images/${categorySlug}-HOVER-olon-120.png`;
   img.src = img.dataset.up;

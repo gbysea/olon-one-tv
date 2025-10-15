@@ -18,7 +18,9 @@ export function renderCategoryNav(categories, containerId) {
     link.className = 'category-link';
 
     const img = document.createElement('img');
-    const base = (window.OLON_CONFIG && window.OLON_CONFIG.themeUrl) ? window.OLON_CONFIG.themeUrl : '/wp-content/themes/olon-one-tv';
+    const base = (window.OLON_CONFIG && window.OLON_CONFIG.themeUrl)
+      ? window.OLON_CONFIG.themeUrl
+      : (window.location ? window.location.origin + '/wp-content/themes/olon-one-tv' : '/wp-content/themes/olon-one-tv');
     img.src = `${base}/assets/images/${cat.icon_up}`;
     img.alt = cat.name;
 
