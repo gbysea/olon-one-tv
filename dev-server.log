@@ -1,0 +1,29 @@
+nohup: ignoring input
+ INFO  Accepting connections at http://localhost:41253
+ HTTP  10/15/2025 3:16:19 AM ::1 GET /
+ HTTP  10/15/2025 3:16:19 AM ::1 Returned 200 in 24 ms
+ HTTP  10/15/2025 3:16:19 AM ::1 GET /css/base.css
+ HTTP  10/15/2025 3:16:19 AM ::1 Returned 200 in 3 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /css/variables.css
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 2 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /css/aura.css
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 1 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /css/components.css
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 2 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /js/aura.js
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /wp-content/themes/olon-one-tv/assets/js/bolt-database-client.js
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 4 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 404 in 2 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /js/header-logo.js
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 1 ms
+ HTTP  10/15/2025 3:16:20 AM ::1 GET /js/categories.js
+ HTTP  10/15/2025 3:16:20 AM ::1 Returned 200 in 2 ms
+ HTTP  10/15/2025 3:16:21 AM ::1 GET /js/posts.js
+ HTTP  10/15/2025 3:16:21 AM ::1 Returned 200 in 1 ms
+ HTTP  10/15/2025 3:16:21 AM ::1 GET /favicon.ico
+ HTTP  10/15/2025 3:16:21 AM ::1 Returned 404 in 1 ms
+
+ INFO  Gracefully shutting down. Please wait...
+ 1 ms
+
+ INFO  Gracefully shutting down. Please wait...
