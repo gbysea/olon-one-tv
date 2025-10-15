@@ -1,38 +1,135 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
   "version": 3,
   "settings": {
-    "color": {
-      "palette": [
-        { "slug": "top", "color": "#FF6B6B", "name": "Top" },
-        { "slug": "up", "color": "#4ECDC4", "name": "Up" },
-        { "slug": "charm", "color": "#FFE66D", "name": "Charm" },
-        { "slug": "bottom", "color": "#95E1D3", "name": "Bottom" },
-        { "slug": "down", "color": "#A8DADC", "name": "Down" },
-        { "slug": "strange", "color": "#C77DFF", "name": "Strange" }
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": true,
+      "units": ["px", "em", "rem", "vh", "vw", "%"],
+      "spacingSizes": [
+        { "size": "0.25rem", "slug": "1", "name": "1" },
+        { "size": "0.5rem", "slug": "2", "name": "2" },
+        { "size": "0.75rem", "slug": "3", "name": "3" },
+        { "size": "1rem", "slug": "4", "name": "4" },
+        { "size": "1.5rem", "slug": "5", "name": "5" },
+        { "size": "2rem", "slug": "6", "name": "6" },
+        { "size": "3rem", "slug": "8", "name": "8" },
+        { "size": "4rem", "slug": "10", "name": "10" },
+        { "size": "6rem", "slug": "12", "name": "12" }
       ]
     },
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "Geologica, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+          "fontFamily": "'Geologica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
           "name": "Geologica",
           "slug": "geologica"
         }
-      ]
+      ],
+      "fontSizes": [
+        { "name": "Extra Small", "slug": "xs", "size": "0.75rem" },
+        { "name": "Small", "slug": "sm", "size": "0.875rem" },
+        { "name": "Medium", "slug": "md", "size": "1rem" },
+        { "name": "Large", "slug": "lg", "size": "1.125rem" },
+        { "name": "Extra Large", "slug": "xl", "size": "1.5rem" },
+        { "name": "2X Large", "slug": "2xl", "size": "2rem" },
+        { "name": "3X Large", "slug": "3xl", "size": "3rem" },
+        { "name": "4X Large", "slug": "4xl", "size": "4rem" }
+      ],
+      "fontWeight": true,
+      "lineHeight": true
+    },
+    "color": {
+      "palette": [
+        { "name": "Black", "slug": "black", "color": "#000000" },
+        { "name": "White", "slug": "white", "color": "#ffffff" },
+        { "name": "Gray Dark", "slug": "gray-dark", "color": "#222633" },
+        { "name": "Gray", "slug": "gray", "color": "#666b78" },
+        { "name": "Gray Light", "slug": "gray-light", "color": "#9aa0ad" },
+
+        { "name": "Top (base)", "slug": "top", "color": "#ff0000" },
+        { "name": "Top (dark)", "slug": "top-dark", "color": "#cc0000" },
+        { "name": "Top (light)", "slug": "top-light", "color": "#ff6666" },
+
+        { "name": "Up (base)", "slug": "up", "color": "#ffff00" },
+        { "name": "Up (dark)", "slug": "up-dark", "color": "#cccc00" },
+        { "name": "Up (light)", "slug": "up-light", "color": "#ffff99" },
+
+        { "name": "Charm (base)", "slug": "charm", "color": "#00ff00" },
+        { "name": "Charm (dark)", "slug": "charm-dark", "color": "#00cc00" },
+        { "name": "Charm (light)", "slug": "charm-light", "color": "#66ff66" },
+
+        { "name": "Bottom (base)", "slug": "bottom", "color": "#00ffff" },
+        { "name": "Bottom (dark)", "slug": "bottom-dark", "color": "#00cccc" },
+        { "name": "Bottom (light)", "slug": "bottom-light", "color": "#66ffff" },
+
+        { "name": "Down (base)", "slug": "down", "color": "#0000ff" },
+        { "name": "Down (dark)", "slug": "down-dark", "color": "#0000cc" },
+        { "name": "Down (light)", "slug": "down-light", "color": "#6666ff" },
+
+        { "name": "Strange (base)", "slug": "strange", "color": "#ff00ff" },
+        { "name": "Strange (dark)", "slug": "strange-dark", "color": "#cc00cc" },
+        { "name": "Strange (light)", "slug": "strange-light", "color": "#ff66ff" }
+      ],
+      "custom": true,
+      "customDuotone": true,
+      "customGradient": true,
+      "defaultPalette": false,
+      "defaultGradients": false
     }
   },
   "styles": {
     "color": {
-      "background": "#0a0e27",
-      "text": "#ffffff"
+      "background": "var(--wp--preset--color--black)",
+      "text": "var(--wp--preset--color--white)"
     },
     "typography": {
-      "fontFamily": "Geologica, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+      "fontFamily": "var(--wp--preset--font-family--geologica)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "1.6",
+      "fontWeight": "400"
+    },
+    "spacing": {
+      "padding": { "top": "0", "right": "0", "bottom": "0", "left": "0" },
+      "blockGap": "var(--wp--preset--spacing--4)"
+    },
+    "elements": {
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--top)",
+          "text": "var(--wp--preset--color--white)"
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--sm)",
+          "fontWeight": "600"
+        },
+        "border": { "radius": "100px" },
+        "spacing": { "padding": { "top": "0.625rem", "right": "1.25rem", "bottom": "0.625rem", "left": "1.25rem" } }
+      },
+      "heading": {
+        "typography": { "fontWeight": "700", "lineHeight": "1.15" }
+      },
+      "h1": { "typography": { "fontSize": "var(--wp--preset--font-size--3xl)" } },
+      "h2": { "typography": { "fontSize": "var(--wp--preset--font-size--2xl)" } },
+      "h3": { "typography": { "fontSize": "var(--wp--preset--font-size--xl)", "fontWeight": "600" } },
+      "link": {
+        "color": { "text": "var(--wp--preset--color--white)" },
+        ":hover": { "color": { "text": "var(--wp--preset--color--top)" } }
+      }
     }
   },
   "templateParts": [
-    { "name": "header", "area": "header" },
-    { "name": "footer", "area": "footer" }
+    { "name": "header", "title": "Header", "area": "header" },
+    { "name": "footer", "title": "Footer", "area": "footer" }
+  ],
+  "customTemplates": [
+    { "name": "blank", "title": "Blank", "postTypes": ["page", "post"] }
   ]
 }
