@@ -1,0 +1,12 @@
+:root{
+  --bg: #0a0e27;
+  --text: #fff;
+  --up: #00ff88;
+  --down: #ff4444;
+  --charm: #4488ff;
+  --strange: #ff8844;
+  --top: #ff44ff;
+  --bottom: #ffff44;
+}
+
+body{background:var(--bg);color:var(--text);}

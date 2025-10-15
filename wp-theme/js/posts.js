@@ -14,7 +14,7 @@ async function loadRecentPosts(limit = 6) {
     const categoryColor = category?.color || '#666';
     
     return `
-      <a href="/post/${post.slug}" class="post-card"
+  <a href="/post/${post.slug}" class="post-card"
          style="--post-category-color: ${categoryColor};">
         ${post.featured_image ? 
           `<img src="${post.featured_image}" alt="${post.title}" class="post-image">` : 

@@ -1,0 +1,10 @@
+:root{
+  --color-top:#FF6B6B;
+  --color-up:#4ECDC4;
+  --color-charm:#FFE66D;
+  --color-bottom:#95E1D3;
+  --color-down:#A8DADC;
+  --color-strange:#C77DFF;
+}
+body{background:#0a0e27;color:#fff;font-family:Geologica,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.site-header{padding:1rem 2rem}
