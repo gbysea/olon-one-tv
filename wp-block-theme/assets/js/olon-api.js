@@ -3,18 +3,14 @@ let BoltClient = null;
 
 async function loadBoltModule() {
   if (BoltClient) return BoltClient;
-  // Try both possible filenames (spaced and kebab) to be robust
+  // Import the canonical bolt-database-client.js (kebab-case filename) to avoid
+  // issues with spaces in filenames and tooling. The client will read OLON_CONFIG.
   try {
-    const m = await import('./Bolt Database-client.js');
+    const m = await import('./bolt-database-client.js');
     BoltClient = m.default || m.Bolt || null;
   } catch (e) {
-    try {
-      const m2 = await import('./bolt-database-client.js');
-      BoltClient = m2.default || m2.Bolt || null;
-    } catch (e2) {
-      console.error('Failed to load Bolt Database client module', e, e2);
-      BoltClient = null;
-    }
+    console.error('Failed to load canonical bolt-database-client.js', e);
+    BoltClient = null;
   }
   return BoltClient;
 }
