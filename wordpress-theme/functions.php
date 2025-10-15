@@ -15,15 +15,13 @@ function olon_block_theme_enqueue() {
     wp_enqueue_script('olon-aura', get_template_directory_uri() . '/assets/js/aura.js', array(), null, true);
     wp_enqueue_script('olon-main', get_template_directory_uri() . '/assets/js/main.js', array('olon-bolt-client','olon-header-logo','olon-aura'), null, true);
 
-    // Localize Bolt Database config into JS using canonical Vite env names ONLY.
-    // Per BOLTAI instructions, these exact env names must be used:
-    // VITE_Bolt Database_URL and VITE_Bolt Database_ANON_KEY
-    $bolt_url = getenv('VITE_Bolt Database_URL') ?: '';
-    $bolt_key = getenv('VITE_Bolt Database_ANON_KEY') ?: '';
+    // Localize Bolt Database config into JS using canonical Option A env names (no spaces).
+    $bolt_url = getenv('VITE_BoltDatabase_URL') ?: '';
+    $bolt_key = getenv('VITE_BoltDatabase_ANON_KEY') ?: '';
 
     wp_localize_script('olon-main', 'OLON_CONFIG', array(
-        'VITE_Bolt Database_URL' => $bolt_url,
-        'VITE_Bolt Database_ANON_KEY' => $bolt_key,
+        'VITE_BoltDatabase_URL' => $bolt_url,
+        'VITE_BoltDatabase_ANON_KEY' => $bolt_key,
         'themeUrl' => get_template_directory_uri()
     ));
 

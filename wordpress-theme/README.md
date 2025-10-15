@@ -10,6 +10,14 @@ This theme requires a Bolt Database project with the following tables and fields
 
 Ensure proper RLS policies and anon/public keys are configured.
 
+Environment variables (Option A - canonical)
+
+Set these environment variables in your hosting environment or in your build system (no spaces):
+
+- VITE_BoltDatabase_URL
+- VITE_BoltDatabase_ANON_KEY
+
+
 Features
 
 - 6 Quantum Categories: TOP, UP, CHARM, STRANGE, DOWN, BOTTOM
