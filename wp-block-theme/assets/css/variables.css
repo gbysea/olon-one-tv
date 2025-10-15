@@ -1,12 +1,33 @@
 :root{
+  /* existing base tokens */
   --bg: #0a0e27;
   --text: #fff;
-  --up: #00ff88;
-  --down: #ff4444;
-  --charm: #4488ff;
-  --strange: #ff8844;
-  --top: #ff44ff;
-  --bottom: #ffff44;
+
+  /* BOLT tokens (harmonized) */
+  --bolt-top: #FF6B6B; /* top */
+  --bolt-up: #4ECDC4; /* up */
+  --bolt-charm: #FFE66D; /* charm */
+  --bolt-bottom: #95E1D3; /* bottom */
+  --bolt-down: #A8DADC; /* down */
+  --bolt-strange: #C77DFF; /* strange */
+
+  /* map to previous shorthand for compatibility */
+  --top: var(--bolt-top);
+  --up: var(--bolt-up);
+  --charm: var(--bolt-charm);
+  --bottom: var(--bolt-bottom);
+  --down: var(--bolt-down);
+  --strange: var(--bolt-strange);
+
+  /* WP preset mappings */
+  --wp--preset--color--black: var(--bg);
+  --wp--preset--color--white: var(--text);
+  --wp--preset--color--top: var(--bolt-top);
+  --wp--preset--color--up: var(--bolt-up);
+  --wp--preset--color--charm: var(--bolt-charm);
+  --wp--preset--color--bottom: var(--bolt-bottom);
+  --wp--preset--color--down: var(--bolt-down);
+  --wp--preset--color--strange: var(--bolt-strange);
 }
 
 body{background:var(--bg);color:var(--text);}

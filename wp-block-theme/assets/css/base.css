@@ -1,3 +1,13 @@
 /* Base typography and layout */
 html,body{margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,sans-serif}
 .site-content{max-width:1100px;margin:0 auto;padding:2rem}
+
+/* BOLT base additions */
+.container{max-width:1200px;margin:0 auto;padding:1rem}
+.site-header,.site-footer{padding:1rem 0}
+.site-logo img{height:48px;width:auto;display:block}
+.site-nav a{color:var(--text);margin-left:1rem;text-decoration:none}
+.hero{padding:3rem 1rem;text-align:center}
+.site-main{padding:2rem 1rem}
+.post{background:rgba(255,255,255,0.03);padding:1rem;margin-bottom:1rem;border-radius:8px}
+.post-title a{color:var(--wp--preset--color--white);text-decoration:none}

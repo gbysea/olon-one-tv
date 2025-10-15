@@ -35,3 +35,14 @@ export function updateLogo(categorySlug) {
 if (typeof window !== 'undefined') {
   window.olonHeaderLogo.updateLogo = updateLogo;
 }
+
+// Auto-init for legacy themes: look for #site-logo-img and call init
+if (typeof window !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.olonHeaderLogo && window.olonHeaderLogo.init) window.olonHeaderLogo.init('site-logo-img');
+    });
+  } else {
+    if (window.olonHeaderLogo && window.olonHeaderLogo.init) window.olonHeaderLogo.init('site-logo-img');
+  }
+}

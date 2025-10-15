@@ -1,1 +1,6 @@
 .aura{border:2px solid transparent;border-radius:12px;padding:0.5rem}
+
+/* BOLT animated background */
+.aura-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.35;background:linear-gradient(45deg,var(--bolt-top),var(--bolt-up),var(--bolt-charm),var(--bolt-bottom),var(--bolt-down),var(--bolt-strange));background-size:400% 400%;animation:aura 30s ease infinite}
+
+@keyframes aura{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}

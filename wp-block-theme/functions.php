@@ -8,9 +8,12 @@ function olon_block_theme_enqueue() {
     wp_enqueue_style('olon-aura', get_template_directory_uri() . '/assets/css/aura.css', array('olon-components'), '1.0');
     wp_enqueue_style('olon-style', get_stylesheet_directory_uri() . '/styles/style.css', array('olon-aura'), '1.0');
 
-    // JS modules: load the Bolt DB client and app entry
+    // JS modules: load the Bolt DB client and app entry and small UI modules
     wp_enqueue_script('olon-supabase-cdn', 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm', array(), null, true);
-    wp_enqueue_script('olon-main', get_template_directory_uri() . '/assets/js/main.js', array(), null, true);
+    wp_enqueue_script('olon-bolt-client', get_template_directory_uri() . '/assets/js/bolt-database-client.js', array(), null, true);
+    wp_enqueue_script('olon-header-logo', get_template_directory_uri() . '/assets/js/header-logo.js', array(), null, true);
+    wp_enqueue_script('olon-aura', get_template_directory_uri() . '/assets/js/aura.js', array(), null, true);
+    wp_enqueue_script('olon-main', get_template_directory_uri() . '/assets/js/main.js', array('olon-bolt-client','olon-header-logo','olon-aura'), null, true);
 
     // Localize Bolt Database config into JS. Provide both spaced and unspaced keys to be compatible.
     $bolt_url = defined('BoltDatabase_URL') ? BoltDatabase_URL : ( defined('Bolt_Database_URL') ? Bolt_Database_URL : '' );
@@ -29,10 +32,10 @@ function olon_block_theme_enqueue() {
         'themeUrl' => get_template_directory_uri()
     ));
 
-    // Ensure the olon-main script is loaded as module (add type="module")
+    // Ensure the olon-* scripts are loaded as modules (add type="module")
     add_filter('script_loader_tag', function($tag, $handle, $src) {
-        if ( 'olon-main' === $handle ) {
-            // Add type="module"
+        $module_handles = array('olon-main','olon-header-logo','olon-aura','olon-bolt-client');
+        if ( in_array($handle, $module_handles, true) ) {
             $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
         }
         return $tag;
