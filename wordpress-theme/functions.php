@@ -15,11 +15,34 @@ function olon_block_theme_enqueue() {
     wp_enqueue_script('olon-aura', get_template_directory_uri() . '/assets/js/aura.js', array(), null, true);
     wp_enqueue_script('olon-main', get_template_directory_uri() . '/assets/js/main.js', array('olon-bolt-client','olon-header-logo','olon-aura'), null, true);
 
-    // Localize Bolt Database config into JS using canonical Option A env names (no spaces).
-    $bolt_url = getenv('VITE_BoltDatabase_URL') ?: '';
-    $bolt_key = getenv('VITE_BoltDatabase_ANON_KEY') ?: '';
+    // Resolve Bolt Database configuration.
+    // Priority: PHP constants (may be defined in wp-config.php) with names like 'Bolt Database_URL',
+    // then Vite-style env vars without spaces (VITE_BoltDatabase_*).
+    $bolt_url = '';
+    $bolt_key = '';
 
+    // Check for PHP constants (user indicates these may be used in production)
+    if ( defined('Bolt Database_URL') ) {
+        $bolt_url = constant('Bolt Database_URL');
+    }
+    if ( defined('Bolt Database_ANON_KEY') ) {
+        $bolt_key = constant('Bolt Database_ANON_KEY');
+    }
+
+    // Fallback to environment variables (no-space canonical names)
+    if ( empty($bolt_url) ) {
+        $bolt_url = getenv('VITE_BoltDatabase_URL') ?: '';
+    }
+    if ( empty($bolt_key) ) {
+        $bolt_key = getenv('VITE_BoltDatabase_ANON_KEY') ?: '';
+    }
+
+    // Localize multiple keys so frontend code can read whichever variant exists.
     wp_localize_script('olon-main', 'OLON_CONFIG', array(
+        // Spaced PHP-constant style (if present)
+        'Bolt Database_URL' => $bolt_url,
+        'Bolt Database_ANON_KEY' => $bolt_key,
+        // No-space Vite-style fallbacks we use in build/runtime
         'VITE_BoltDatabase_URL' => $bolt_url,
         'VITE_BoltDatabase_ANON_KEY' => $bolt_key,
         'themeUrl' => get_template_directory_uri()
